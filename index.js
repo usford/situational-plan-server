@@ -5,6 +5,8 @@ import XLSX from 'xlsx';
 
 import ControllerInput from './models/contoller_input.js';
 
+  
+
 // Configuration excel files paths
 const codesWorkbookPath = './config/codes_sp.xlsx';
 const controllersWorkbookPath = './config/controllers.xlsx';
@@ -186,7 +188,7 @@ wss.on('connection', function connection(ws){
     setTimeout(() =>
     {
         ws.send(JSON.stringify({lines: activeLines}));
-    }, 3000);
+    }, 1000);
 
     //let id = "sv0700504220631";
 
@@ -218,20 +220,20 @@ wss.on('connection', function connection(ws){
         if (event.type == "pressedButton")
         {
             //Выход
-            if (event.id == "1kn00-016.1")
-            {
-                exec('kill.bat', (err, stdout, stderr) => {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
-                console.log(stdout);
-                });
-                //process.exit(1);
-                setTimeout(() => {
-                    process.exit(1)
-                }, 1000);
-            }
+            // if (event.id == "1kn00-016.1")
+            // {
+            //     exec('kill.bat', (err, stdout, stderr) => {
+            //     if (err) {
+            //         console.error(err);
+            //         return;
+            //     }
+            //     console.log(stdout);
+            //     });
+            //     //process.exit(1);
+            //     setTimeout(() => {
+            //         process.exit(1)
+            //     }, 1000);
+            // }
         }
 
     });
